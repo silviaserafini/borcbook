@@ -2,14 +2,32 @@ import React, { Component } from 'react';
 
 class Home extends Component{
     render(){
+        const entityList = [
+            {
+                id: 1,
+                name:"casaBorca"
+            },
+            {
+                id: 2,
+                name:"clio"
+            }
+        ];
+        const entries = entityList.map((entity)=>{
+            return (
+                <li>{entity.name}</li>
+            );
+        }); 
         return(
             <div>
                 <h1> Welcome to Borcbook!</h1>
-                <button>Create</button>
-                <button>Join</button>
+                <div>
+                    <button>Create</button>
+                </div>
+                <div>
+                    <button>Join</button>
+                </div>               
                 <ul>
-                    <li>Casa Borca</li>
-                    <li>Clio</li>
+                    {entries}
                 </ul>
             </div>
         );
