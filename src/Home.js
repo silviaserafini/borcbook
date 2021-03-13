@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component{
     render(){
@@ -21,11 +22,11 @@ class Home extends Component{
             <div>
                 <h1> Welcome to Borcbook!</h1>
                 <div>
-                    <button>Create</button>
+                    <Link to="/create"><button>Create</button></Link>
                 </div>
                 <div>
-                    <button>Join</button>
-                </div>               
+                    <Link to="/join"><button>Join</button></Link>
+                </div>
                 <ul>
                     {entries}
                 </ul>
