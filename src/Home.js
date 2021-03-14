@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Home extends Component{
+    state = {
+        entityList:[]
+    };
+
+    componentDidMount(){
+        setTimeout(()=>{
+            const entityList = [
+                {
+                    id: 1,
+                    name:"casaBorca"
+                },
+                {
+                    id: 2,
+                    name:"clio"
+                }
+            ];
+            this.setState({entityList:entityList})
+        },3000);
+    }
+
     render(){
-        const entityList = [
-            {
-                id: 1,
-                name:"casaBorca"
-            },
-            {
-                id: 2,
-                name:"clio"
-            }
-        ];
-        const entries = entityList.map((entity)=>{
+        const entries = this.state.entityList.map((entity)=>{
             return (
                 <li>{entity.name}</li>
             );
