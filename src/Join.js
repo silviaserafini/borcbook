@@ -9,6 +9,7 @@ class Join extends Component {
                 <form>
                     <label>groupID</label>
                     <input/>
+                    <button>Join</button>
                 </form>
             </div>
        );
