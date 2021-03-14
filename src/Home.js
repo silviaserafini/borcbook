@@ -25,7 +25,12 @@ class Home extends Component{
     render(){
         const entries = this.state.entityList.map((entity)=>{
             return (
-                <li>{entity.name}</li>
+                <li>
+                    <Link to={{ 
+                        pathname: '/overview',
+                        state: {entity:entity}
+                    }}>{entity.name}</Link>
+                </li>
             );
         }); 
         return(
