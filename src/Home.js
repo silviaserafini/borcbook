@@ -11,7 +11,33 @@ class Home extends Component{
             const entityList = [
                 {
                     id: 1,
-                    name:"casaBorca"
+                    name:"casaBorca",
+                    reservations: [
+                        {
+                            user: {
+                                email: "silvia@borcabook.com",
+                                name: "Silva",
+                                group: "SilviaFamily"
+                            },
+                            status: "pending",
+                            dateRange: {
+                                start: "20210320",
+                                end: "20210330"
+                            }
+                        },
+                        {
+                            user: {
+                                email: "francesco@borcabook.com",
+                                name: "Francesco",
+                                group: "SilviaFamily"
+                            },
+                            status: "approved",
+                            dateRange: {
+                                start: "20210331",
+                                end: "20210410"
+                            }
+                        }
+                    ]
                 },
                 {
                     id: 2,
@@ -19,7 +45,7 @@ class Home extends Component{
                 }
             ];
             this.setState({entityList:entityList})
-        },3000);
+        },500);
     }
 
     render(){
