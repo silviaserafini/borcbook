@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Overview extends Component{
     render(){
@@ -18,6 +19,7 @@ class Overview extends Component{
             <div>
                 <h1>Overview {entity.name}</h1>
                 <h3>(ID: {entity.id})</h3>
+                <Link to={`/reservation/${entity.id}`}><button>Add reservation</button></Link>
                 <div>
                     <ul>
                         {reservations}
