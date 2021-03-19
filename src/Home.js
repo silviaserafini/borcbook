@@ -2,64 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
-    state = {
-        entityList: [],
-    };
-
-    componentDidMount() {
-        setTimeout(() => {
-            const entityList = [
-                {
-                    id: 1,
-                    name: 'casaBorca',
-                    reservations: [
-                        {
-                            user: {
-                                email: 'silvia@borcabook.com',
-                                name: 'Silva',
-                                group: 'SilviaFamily',
-                            },
-                            status: 'pending',
-                            dateRange: {
-                                start: '20210320',
-                                end: '20210330',
-                            },
-                        },
-                        {
-                            user: {
-                                email: 'francesco@borcabook.com',
-                                name: 'Francesco',
-                                group: 'SilviaFamily',
-                            },
-                            status: 'approved',
-                            dateRange: {
-                                start: '20210331',
-                                end: '20210410',
-                            },
-                        },
-                    ],
-                },
-                {
-                    id: 2,
-                    name: 'clio',
-                },
-            ];
-            this.setState({ entityList: entityList });
-        }, 500);
-    }
-
     render() {
-        const entries = this.state.entityList.map((entity) => {
+        const entities = this.props.entities.map((entity) => {
             return (
-                <li>
-                    <Link
-                        to={{
-                            pathname: '/overview',
-                            state: { entity: entity },
-                        }}
-                    >
-                        {entity.name}
-                    </Link>
+                <li key={entity.id}>
+                    <Link to={`/overview/${entity.id}`}>{entity.name}</Link>
                 </li>
             );
         });
@@ -76,7 +23,7 @@ class Home extends Component {
                         <button>Join</button>
                     </Link>
                 </div>
-                <ul>{entries}</ul>
+                <ul>{entities}</ul>
             </div>
         );
     }

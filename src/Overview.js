@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Overview extends Component {
-    render() {
-        const entity = this.props.location.state.entity;
+    render = () => {
+        const id = this.props.match.params.id;
+        let entity = this.props.entities.find((entity) => entity.id == id);
+        if (!entity) {
+            entity = { reservations: [], name: 'noname', id: 'noid' };
+        }
+
         const reservations = entity.reservations.map((reservation) => {
             return (
                 <li>
@@ -14,8 +19,8 @@ class Overview extends Component {
                         </p>
                         <p>Status: {reservation.status}</p>
                         <p>
-                            Date: {reservation.dateRange.start} -{' '}
-                            {reservation.dateRange.end}
+                            Date:{' '}
+                            {`${reservation.dateRange.start} - ${reservation.dateRange.end}`}
                         </p>
                     </div>
                 </li>
@@ -33,7 +38,7 @@ class Overview extends Component {
                 </div>
             </div>
         );
-    }
+    };
 }
 
 export default Overview;

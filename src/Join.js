@@ -1,13 +1,12 @@
-import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 
 class Join extends Component {
     render() {
         return (
             <div>
-                <h1>Join a group</h1>
+                <h1>Join an entity</h1>
                 <form>
-                    <label>groupID</label>
+                    <label>Entity ID: </label>
                     <input />
                     <button>Join</button>
                 </form>
