@@ -63,6 +63,12 @@ class App extends Component {
         }
     };
 
+    createEntity = (entity) => {
+        const updateEntities = JSON.parse(JSON.stringify(this.state.entities));
+        updateEntities.push(entity);
+        this.setState({ entities: updateEntities });
+    };
+
     render() {
         return (
             <BrowserRouter>
@@ -72,7 +78,16 @@ class App extends Component {
                         exact
                         render={() => <Home entities={this.state.entities} />}
                     />
-                    <Route path="/create" exact component={Create} />
+                    <Route
+                        path="/create"
+                        exact
+                        render={(matchProps) => (
+                            <Create
+                                createEntity={this.createEntity}
+                                {...matchProps}
+                            />
+                        )}
+                    />
                     <Route path="/join" exact component={Join} />
                     <Route
                         path="/overview/:id"
